@@ -79,26 +79,147 @@ int crear_tablero(Board *b){
     return 0;
 }
 
-void mostrar_tablero(const Board *b,int mostrar){
+void mostrar_tablero(const Board *b, int mostrar){
+
     printf("    ");
-    for(int j=0;j<N;j++) printf(" %c  ",'A'+j);
-    printf("| BombasFila\n");
-    for(int i=0;i<N;i++){
+
+    for(int j = 0; j < N; j++){
+        
+        printf(" %c  ",'A'+j);
+    }
+
+    printf("| BombasFila | SumaFila\n"); 
+    
+    for(int i = 0; i < N; i++){
+
         printf(" %d |",i+1);
-        for(int j=0;j<N;j++){
-            if(!mostrar) printf(" ?? ");
+
+        for(int j = 0; j < N; j++){
+
+            if(!mostrar){
+                
+                printf(" ?? ");
+            }
+            
             else{
-                int v=b->celda[i][j];
-                if(v==0) printf(" B  ");
-                else printf(" x%d ",v);
+
+                int v = b->celda[i][j];
+
+                if(v == 0){
+                    printf(" B  ");
+                } 
+                
+                else{
+                    printf(" x%d ",v);
+                }
             }
         }
-        printf("|     %d\n",b->bombas_fila[i]);
+    
+        printf("|     %d     |     %2d\n", b->bombas_fila[i], b->suma_fila[i]);
     }
+
     printf("----");
-    for(int j=0;j<N;j++) printf("----");
-    printf("|------------\n");
-    printf("    ");
-    for(int j=0;j<N;j++) printf(" %2d ",b->bombas_col[j]);
-    printf("  BombasCol\n");
+    for(int j = 0; j < N; j++){
+
+        printf("----");
+    }
+
+    printf("|------------|---------\n"); 
+
+    printf("B C");
+
+    for(int j = 0; j < N; j++){
+        
+        printf(" %2d ",b->bombas_col[j]);
+    }
+
+    printf("|\n");
+    printf("S C");
+
+    for(int j = 0; j < N; j++){
+        printf(" %2d ",b->suma_col[j]);
+    }
+
+    printf("|\n");
+}
+
+
+void sumar_filas_columnas(Board *b){
+
+    for(int i = 0; i <N; i++){
+
+        b->suma_fila[i] = 0;
+        b->suma_col[i] = 0;
+
+        for(int j = 0; j < N; j++){
+
+            b->suma_fila[i] += b->celda[i][j];
+            b->suma_col[i] += b->celda[j][i];
+        }
+    }
+}
+
+void mostrar_casillas(const Board *b, int vista[N][N]){
+
+    printf("     ");
+
+    for(int i = 0; i < N; i++){
+
+        printf(" %c  ",'A'+i);
+    }
+
+    printf("| BombasFila | SumaFila\n");
+
+    for(int j = 0; j < N; j++){
+
+        printf(" %d |", j+1);
+
+        for(int k = 0; k < N; k++){
+
+            if(!vista[j][k]){
+
+                printf(" ?? ");
+            }
+
+            else{
+
+                int v = b->celda[j][k];
+
+                if(v == 0){
+                    printf(" B  ");
+                } 
+
+                else{
+                    printf(" x%d ",v);
+                }
+            }
+        }
+
+        printf("|     %d     |     %2d\n", b->bombas_fila[j], b->suma_fila[j]);
+    }
+
+    printf("----");
+
+    for(int i = 0; i < N; i++){
+
+        printf("----");
+    }
+
+    printf("|------------|---------\n");
+    printf("B.C ");
+
+    for(int j = 0; j < N; j++){
+
+        printf(" %2d ",b->bombas_col[j]);
+    }
+
+    printf("|\n");
+    printf("S.C ");
+
+    for(int k = 0; k < N; k++){
+
+        printf(" %2d ",b->suma_col[k]);
+    }
+
+    printf("|\n");
 }
