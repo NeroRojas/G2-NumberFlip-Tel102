@@ -168,7 +168,7 @@ void mostrar_casillas(const Board *b, int vista[N][N]){
         printf(" %c  ",'A'+i);
     }
 
-    printf("| BombasFila | SumaFila\n");
+    printf("BombasFila | SumaFila\n");
 
     for(int j = 0; j < N; j++){
 
@@ -205,7 +205,7 @@ void mostrar_casillas(const Board *b, int vista[N][N]){
         printf("----");
     }
 
-    printf("|------------|---------\n");
+    printf("|---------------------\n");
     printf("B.C ");
 
     for(int j = 0; j < N; j++){
