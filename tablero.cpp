@@ -209,74 +209,62 @@ Board::Board(){
     }
 }
 
+// ==== FORMATO ALINEADO ====
 void Board::mostrar_tablero(int mostrar){
     
-    cout << "    ";
+    cout << "     ";
 
     for(int j = 0; j < N; j++){
 
-        cout << " " << (char)('A'+j) << "  ";
+        cout << setw(4) << (char)('A'+j);
     }
 
-    cout << "| BombasFila | SumaFila\n";
+    cout << "|BombasFila |SumaFila\n";
     
     for(int i = 0; i < N; i++){
 
-        cout << " " << (i+1) << " |";
+        cout << " " << setw(2) << (i+1) << " |";
 
         for(int j = 0; j < N; j++){
 
-            if(!mostrar){
+            string s;
+            if(!mostrar){ s = "??"; }
+            else if(celda[i][j] == 0){ s = "B"; }
+            else{ s = to_string(celda[i][j]); }
 
-                cout << " ?? ";
-
-            } 
-            
-            else{
-
-                int v = celda[i][j];
-
-                if(v == 0){ 
-
-                    cout << " B  ";
-                }
-
-                else{ 
-
-                    cout << " " << v << " ";
-                }
-            }
+            cout << setw(4) << left << s;
         }
-        
-        cout << "|     " << bombas_fila[i] << "     |     "  << setw(2) << suma_fila[i] << "\n";
+
+        cout << "| " << setw(10) << left << bombas_fila[i]
+             << "| " << setw(8) << left << suma_fila[i] << "\n";
     }
 
-    cout << "----";
+    cout << "-----";
 
     for(int j = 0; j < N; j++){ 
 
         cout << "----";
     }
 
-    cout << "|------------|---------\n"; 
+    cout << "|-----------|----------\n"; 
 
-    cout << "B C";
-
-    for(int j = 0; j < N; j++){
-
-        cout << " " << setw(2) << bombas_col[j] << " ";
-    }
-
-    cout << "|\n";
-
-    cout << "S C";
+    cout << "B.C ";
 
     for(int j = 0; j < N; j++){
 
-        cout << " " << setw(2) << suma_col[j] << " ";
+        cout << setw(4) << bombas_col[j];
     }
 
-    cout << "|\n";
+    cout << " |\n";
+
+    cout << "S.C ";
+
+    for(int j = 0; j < N; j++){
+
+        cout << setw(4) << suma_col[j];
+    }
+
+    cout << " |\n";
 }
 
 void Board::sumar_filas_columnas(){
@@ -294,68 +282,57 @@ void Board::sumar_filas_columnas(){
     }
 }
 
+// ==== FORMATO ALINEADO ====
 void Board::mostrar_casillas(int vista[N][N]){
 
-    cout << "    ";
+    cout << "     ";
 
     for(int i = 0; i < N; i++){
 
-        cout << " " << (char)('A'+i) << "  ";
+        cout << setw(4) << (char)('A'+i);
     }
 
-    cout << "BombasFila | SumaFila\n";
+    cout << "|BombasFila |SumaFila\n";
 
     for(int j = 0; j < N; j++){
 
-        cout << " " << j + 1 << " |";
+        cout << " " << setw(2) << j + 1 << " |";
 
         for(int k = 0; k < N; k++){
 
-            if(!vista[j][k]){
+            string s;
+            if(!vista[j][k]){ s = "??"; }
+            else if(celda[j][k] == 0){ s = "B"; }
+            else{ s = to_string(celda[j][k]); }
 
-                cout << " ?? ";
-            }
-
-            else{
-
-                int v = celda[j][k];
-
-                if(v == 0){
-
-                    cout << " B  ";
-                }
-
-                else{
-
-                    cout << " " << v << " ";
-                }
-            }
+            cout << setw(4) << left << s;
         }
 
-        cout << "|     " << bombas_fila[j] << "     |     "  << setw(2) << suma_fila[j] << "\n";
+        cout << "| " << setw(10) << left << bombas_fila[j]
+             << "| " << setw(8) << left << suma_fila[j] << "\n";
     }
 
-    cout << "----";
+    cout << "-----";
 
     for(int i = 0; i < N; i++){
 
         cout << "----";
     }
 
-    cout << "|---------------------\n";
-    cout << "B.C ";
+    cout << "|-----------|----------\n";
+    cout << "B.C  ";
 
     for(int j = 0; j < N; j++){
 
-        cout << " " << setw(2) << bombas_col[j] << " ";
+        cout << setw(4) << bombas_col[j];
     }
 
     cout << "|\n";
-    cout << "S.C ";
+    cout << "S.C  ";
 
     for(int k = 0; k < N; k++){
 
-        cout << " " << setw(2) << suma_col[k] << " ";
+        cout << setw(4) << suma_col[k];
     }
 
     cout << "|\n";
