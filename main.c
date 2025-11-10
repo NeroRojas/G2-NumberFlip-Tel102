@@ -36,7 +36,6 @@ int main(){
             printf("\n");
             int visibles[N][N] = {0};
             int Casillas_Reveladas = 0;
-
             srand((unsigned)time(NULL));
             Board b;
 
