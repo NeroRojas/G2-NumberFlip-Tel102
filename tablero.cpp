@@ -127,24 +127,28 @@ void Board::llenar_multiplicadores(int p_x3, int p_x2){
     for(int i = 0; i < N; i++){
         for(int j = 0; j < N; j++){
 
-            if(celda[i][j] != 0){
+            if(celda[i][j] == 0){
 
-                if(m < p_x3){
+                continue;
+            }
 
-                    celda[i][j] = 3;
-                    m++;
-                }
+            int r = rand() % 100;
 
-                else if(m < p_x3 + p_x2){
+            if(r<p_x3){ 
+                
+                celda[i][j]=3; 
+                m++; 
+            }
+            
+            else if(r<(p_x3+p_x2)){
+                
+                celda[i][j]=2;
+                m++; 
+            }
 
-                    celda[i][j] = 2;
-                    m++;
-                }
-
-                else{
-
-                    celda[i][j] = 1;
-                }
+            else{
+                
+                celda[i][j]=1;
             }
         }
     }
