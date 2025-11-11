@@ -55,21 +55,21 @@ Las casillas seguras se rellenan con multiplicadores de puntos (x1, x2, x3) que 
 
 ## 5. Proceso de Compilacion y Ejecucion:
 
-El juego esta desarrollado en lenguaje C y se utilizo el compilador gcc en un entorno Linux Ubuntu.
+El juego esta desarrollado en lenguaje C++ y se utilizo el compilador g++ en un entorno Linux Ubuntu.
 
 ### Requisitos:
 
-* El compilador gcc.
+* El compilador g++.
 
 ### Instrucciones de Compilacion:
 
 1.  Descarga los archivos, clona o descarga este repositorio.
 
-2.  Abre una terminal y navega hasta donde se encuentran los archivos ".c" y ".h".
+2.  Abre una terminal y navega hasta donde se encuentran los archivos ".cpp" y ".h".
 
 3.  Ejecuta el siguiente comando para compilar todos los archivos necesarios:
 
-    *    gcc -o NumberFlip tablero.c main.c -Wall
+    *    g++ -o NumberFlip main.cpp tablero.cpp -Wall
 
 ### Instrucciones de Ejecucion:
 
@@ -83,8 +83,6 @@ El juego esta desarrollado en lenguaje C y se utilizo el compilador gcc en un en
 **Avance:** Se completo una primera version totalmente funcional y jugable del proyecto, cumpliendo con los objetivos principales del Hito 1.
 
 **Proximos pasos:**
-
-* Cambiar el lenguaje de programacion del juego de C a C++.
 
 * Implementar el sistema de puntaje.
 
