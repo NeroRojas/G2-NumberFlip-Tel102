@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="bomb.png">assets/Bomba.png</file>
+        <file alias="back.png">assets/back.png</file>
+        <file alias="x1.png">assets/x1.png</file>
+        <file alias="x2.png">assets/x2.png</file>
+        <file alias="x3.png">assets/x3.png</file>
+        <file alias="chip1.png">assets/Ficha1.png</file>
+        <file alias="chip2.png">assets/Ficha2.png</file>
+    </qresource>
+</RCC>
