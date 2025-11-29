@@ -17,6 +17,8 @@ qt_add_executable(NumberFlip
     mainwindow.ui
     board.cpp
     board.h
+    intro_dialog.h
+    intro_dialog.cpp
     resources.qrc
     windows_icon.rc
 )
