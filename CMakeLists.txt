@@ -18,6 +18,7 @@ qt_add_executable(NumberFlip
     board.cpp
     board.h
     resources.qrc
+    windows_icon.rc
 )
 
 target_link_libraries(NumberFlip

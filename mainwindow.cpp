@@ -15,6 +15,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->btnNewGame, &QPushButton::clicked, this, &MainWindow::onNewGameClicked);
     connect(ui->btnExit, &QPushButton::clicked, this, &MainWindow::onExitClicked);
 
+    setWindowIcon(QIcon(":/bomb.png"));
+
     setupBoardUI();
     
     // Debug: Check if resources exist
@@ -74,8 +76,8 @@ void MainWindow::setupBoardUI()
 
     // Create Row Hints (Col 5 and 6)
     for(int i=0; i<5; i++){
-        QString chipStyle = (i % 2 == 0) ? "QLabel { border-image: url(:/chip1.png); color: black; font-weight: bold; }" 
-                                         : "QLabel { border-image: url(:/chip2.png); color: black; font-weight: bold; }";
+        QString chipStyle = (i % 2 == 0) ? "QLabel { border-image: url(:/chip1.png); color: white; font-weight: bold; }" 
+                                         : "QLabel { border-image: url(:/chip2.png); color: white; font-weight: bold; }";
 
         QLabel *lblBomb = new QLabel(this);
         lblBomb->setAlignment(Qt::AlignCenter);
@@ -94,8 +96,8 @@ void MainWindow::setupBoardUI()
 
     // Create Column Hints (Row 5 and 6)
     for(int j=0; j<5; j++){
-        QString chipStyle = (j % 2 == 0) ? "QLabel { border-image: url(:/chip1.png); color: black; font-weight: bold; }" 
-                                         : "QLabel { border-image: url(:/chip2.png); color: black; font-weight: bold; }";
+        QString chipStyle = (j % 2 == 0) ? "QLabel { border-image: url(:/chip1.png); color: white; font-weight: bold; }" 
+                                         : "QLabel { border-image: url(:/chip2.png); color: white; font-weight: bold; }";
 
         QLabel *lblBomb = new QLabel(this);
         lblBomb->setAlignment(Qt::AlignCenter);
